@@ -3,7 +3,7 @@
 <Project>
   <Target Name="SetVersion">
     <PropertyGroup>
-      <Version>v11.22.33</Version>
+      <Version>1.2.3</Version>
     </PropertyGroup>
   </Target>
 </Project>
