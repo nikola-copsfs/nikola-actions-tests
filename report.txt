@@ -1,1 +1,9 @@
-1643549102
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project>
+  <Target Name="SetVersion">
+    <PropertyGroup>
+      <Version>v11.22.33</Version>
+    </PropertyGroup>
+  </Target>
+</Project>
