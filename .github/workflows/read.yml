@@ -21,7 +21,7 @@ jobs:
         run: |
              git config --global user.name nikola-copsfs
              git config --global user.email nikola-copsfs@users.noreply.github.com
-             git fetch -t 
+             git fetch --tags
              
       - name: Print tag
         run: echo $(git describe --tags --abbrev=0)
