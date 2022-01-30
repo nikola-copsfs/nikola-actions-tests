@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: outputs
-
+env:
+  MY_VAR: ''
 # Controls when the workflow will run
 on:
   workflow_dispatch:
@@ -13,10 +14,13 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
+      - name: Increment version
+        run: echo "MY_VAR=$( echo NIKOLA)">>$GITHUB_ENV
+    
       - id: step1
         run: echo "::set-output name=test::hello"
       - id: step2
-        run: echo "::set-output name=test::world"
+        run: echo "::set-output name=test::${{ env.MY_VAR }}"
   job2:
     runs-on: ubuntu-latest
     needs: job1
