@@ -31,5 +31,5 @@ jobs:
       - run: ls
         
       - name: look in file
-        run: grep 'Latest' currVersions.txt
+        run: cat currVersions.txt
         
