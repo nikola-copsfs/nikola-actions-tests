@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: githubapi
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  apitest:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Get last package tag
+        uses: octokit/request-action@v2.x
+        id: get_last_package_tag
+        with:
+          route: GET /orgs/octo-org/packages/npm/hello-world-npm/versions
+          per_page: 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+      - name: Log latest container
+        run: echo ${{fromJson(steps.get_last_package_tag.outputs.data)[0]}}
