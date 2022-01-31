@@ -26,4 +26,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       - name: Log latest container
-        run: echo "${{ contains(fromJson(steps.get_last_package_tag.outputs.data)[0].metadata.container.tags, 'L*') }}"
+        run: echo "${{ toJson(fromJson(steps.get_last_package_tag.outputs.data)[0].metadata.container.tags) }}"
