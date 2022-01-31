@@ -26,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
       - name: Log latest container
-        run: cat currVersions.txt | echo "${{ toJson(fromJson(steps.get_last_package_tag.outputs.data)[0].metadata.container.tags) }}"
+        run: echo "${{ toJson(fromJson(steps.get_last_package_tag.outputs.data)[0].metadata.container.tags) }}" > currVersions.txt
         
       - run: ls
         
