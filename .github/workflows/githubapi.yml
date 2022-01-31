@@ -20,7 +20,7 @@ jobs:
         uses: octokit/request-action@v2.x
         id: get_last_package_tag
         with:
-          route: GET /orgs/octo-org/packages/npm/hello-world-npm/versions
+          route: GET /orgs/octo-org/packages/container/ghtoken_on_demand/versions
           per_page: 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
