@@ -35,11 +35,13 @@ jobs:
       - name: look in file
         run: |
           if grep 'latest' currVersions.txt; then
-            echo "CONTAINER_TAG=$( grep 'l*' currVersions.txt)">>$GITHUB_ENV
+            echo "CONTAINER_TAG=$( grep 'l' currVersions.txt)">>$GITHUB_ENV
           else 
             echo "CANNOT DO THIS"
           fi
           
-      - name: print variable
-        run: echo ${{env.CONTAINER_TAG}}
+      - name: funtion for versions
+        run: echo "CONTAINER_TAG=v11.22.33">>$GITHUB_ENV
         
+      - name: check  
+        run: echo {{ env.CONTAINER_TAG }}
