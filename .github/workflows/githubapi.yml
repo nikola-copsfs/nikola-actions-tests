@@ -32,7 +32,7 @@ jobs:
         
       - name: look in file
         run: |
-          if grep 'Latest' currVersions.txt; then
+          if grep 'latest' currVersions.txt; then
             echo "DO THIS"
           else 
             echo "CANNOT DO THIS"
