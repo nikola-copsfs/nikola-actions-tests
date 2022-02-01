@@ -16,6 +16,7 @@ jobs:
     env:
       CONTAINER_TAG: ''
       CONATINER_MINOR: ''
+      GIT_MINOR: '22'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -47,5 +48,5 @@ jobs:
       - name: prepare env  
         run: echo "CONATINER_MINOR=$(echo "${{ env.CONTAINER_TAG }}" |  awk '{split($0,a,"."); print a[2]}')">>$GITHUB_ENV
       
-      - run: echo ${{env.CONATINER_MINOR == 22}}
+      - run: echo ${{env.CONATINER_MINOR == env.GIT_MINOR}}
         
