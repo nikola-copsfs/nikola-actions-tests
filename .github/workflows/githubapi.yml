@@ -28,7 +28,7 @@ jobs:
       - name: Log latest container
         run: echo "${{ toJson(fromJson(steps.get_last_package_tag.outputs.data)[0].metadata.container.tags) }}" > currVersions.txt
         
-      - run: ls
+      - run: echo grep 'latest' currVersions.txt; then
         
       - name: look in file
         run: |
