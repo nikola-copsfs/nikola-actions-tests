@@ -31,5 +31,11 @@ jobs:
       - run: ls
         
       - name: look in file
-        run: grep -c 'Latest' currVersions.txt
+        run: |
+          if grep 'Latest' currVersions.txt; then
+            echo "DO THIS"
+          else 
+            echo "CANNOT DO THIS"
+          fi
+          
         
