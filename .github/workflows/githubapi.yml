@@ -16,7 +16,7 @@ jobs:
     env:
       CONTAINER_TAG: ''
       CONATINER_MINOR: ''
-      GIT_MINOR: '22'
+      GIT_MINOR: '23'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
