@@ -13,6 +13,8 @@ jobs:
   apitest:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      CONTAINER_TAG: ''
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -33,9 +35,11 @@ jobs:
       - name: look in file
         run: |
           if grep 'latest' currVersions.txt; then
-            echo "DO THIS"
+            echo "CONTAINER_TAG=$( grep 'latest' currVersions.txt)">>$GITHUB_ENV
           else 
             echo "CANNOT DO THIS"
           fi
           
+      - name: print variable
+        run: echo ${{env.CONTAINER_TAG}}
         
