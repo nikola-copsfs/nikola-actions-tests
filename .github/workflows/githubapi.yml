@@ -44,4 +44,4 @@ jobs:
         run: echo "CONTAINER_TAG=v11.22.33">>$GITHUB_ENV
         
       - name: check  
-        run: echo ${{ env.CONTAINER_TAG }}
+        run: echo ${{ env.CONTAINER_TAG }} |  awk '{split($0,a,"."); a[2]}'
