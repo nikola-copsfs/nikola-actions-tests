@@ -35,7 +35,7 @@ jobs:
       - name: look in file
         run: |
           if grep 'latest' currVersions.txt; then
-            echo "CONTAINER_TAG=$( grep 'latest' currVersions.txt)">>$GITHUB_ENV
+            echo "CONTAINER_TAG=$( grep 'l*' currVersions.txt)">>$GITHUB_ENV
           else 
             echo "CANNOT DO THIS"
           fi
