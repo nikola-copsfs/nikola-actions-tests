@@ -47,5 +47,5 @@ jobs:
       - name: prepare env  
         run: echo "CONATINER_MINOR=$(echo "${{ env.CONTAINER_TAG }}" |  awk '{split($0,a,"."); print a[2]}')">>$GITHUB_ENV
       
-      - run: echo ${{env.CONATINER_MINOR}}
+      - run: echo ${{env.CONATINER_MINOR == 22}}
         
